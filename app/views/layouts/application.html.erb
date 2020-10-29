@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheGossipProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to "The Gossip Project", root_path, :class => "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <%= link_to "Home", root_path, :class => "nav-item nav-link" %>
+          <a class="nav-item nav-link" href=<%=static_pages_team_path%>>Team</a>
+          <a class="nav-item nav-link" href=<%=static_pages_contact_path%>>Contact</a>
+        </div>
+      </div>
+
+    <% if session[:user_id] != nil %>
+    <%= link_to "Se déconnecter", session_path(session.id), method: :delete %> 
+
+    <% else %>
+
+    <%= link_to "Se connecter", new_session_path %>
+    <a class="nav-item nav-link mr-sm-2" href=<%=new_user_path%>>Inscription</a>
+
+    <%end%>
+
+  </nav>
+
+    <%= yield %>
+  </body>
+</html>

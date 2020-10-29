@@ -1,0 +1,17 @@
+<h1> Editer un article </h1>
+
+<%= form_for @goss_id do |f| %>
+    <div class=”form_group”>
+    <label>Title :</label>
+    <%= f.text_field :title, class: "form control" %>
+    </div>
+
+    <div class=”form_group”>
+    <label>Content :</label>
+    <%= f.text_field :content, class: "form control" %>
+    </div>
+
+    <div class="form-group">
+    <button  class="btn btn-secondary" type="submit">Modifier le potin</button>
+  </div>
+<%end%> 
